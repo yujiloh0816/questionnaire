@@ -16,14 +16,7 @@
 </div>
 <!-- fields_for form_for内で異なるモデルを編集できるようになる -->
 <%= f.fields_for :questions do |builder| %>
-<!-- フォームの入力項目をグループ化する borderがはいる -->
-  <fieldset>
-    <%= builder.label :content, "Question" %><br />
-    <%= builder.text_area :content %><br />
-    <!-- -->
-    <%= builder.check_box :_destroy %>
-    <%= builder.label :_destroy, "Remove Question" %>
-  </fieldset>
+  <%= render "questions_fields", f: builder %>
 <% end %>
 <div class="actions">
   <%= f.submit %>

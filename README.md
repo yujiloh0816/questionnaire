@@ -31,3 +31,7 @@ questions_attributesのidもpermitしないと更新したときに、既存＋�
 def survey_params
   params.require(:survey).permit(:name, questions_attributes: [:id,:content])
 end
+
+paramsの中のanswers_attributes:の位置
+questions_attributesと同列ではなく、
+questions_attributes（親）とanswers_attributes（子）は親子関係
