@@ -91,4 +91,10 @@ Rails.application.configure do
 
   # Do not dump schema after migrations.
   config.active_record.dump_schema_after_migration = false
+
+  if defined?(BetterErrors) && ENV["SSH_CLIENT"]
+    host = ENV["SSH_CLIENT"].match(/\A([^\s]*)/)[1]
+    BetterErrors::Middleware.allow_ip! host if host
+  end
+
 end
