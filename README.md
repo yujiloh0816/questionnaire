@@ -22,3 +22,12 @@ Things you may want to cover:
 * Deployment instructions
 
 * ...
+
+* ハマりポイント
+
+ストロングパラメーターの設定
+questions_attributesのidもpermitしないと更新したときに、既存＋更新内容の２パターンが登録される。
+
+def survey_params
+  params.require(:survey).permit(:name, questions_attributes: [:id,:content])
+end

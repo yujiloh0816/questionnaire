@@ -3,18 +3,26 @@
     <div class="error_messages">
       <h2><%= pluralize(@survey.errors.count, "error") %> prohibited this survey from being saved:</h2>
       <ul>
-      <% @survey.errors.full_messages.each do |msg| %>
-        <li><%= msg %></li>
-      <% end %>
+        <% @survey.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
       </ul>
     </div>
   <% end %>
 
-  <div class="field">
-    <%= f.label :name %><br />
-    <%= f.text_field :name %>
-  </div>
-  <div class="actions">
-    <%= f.submit %>
-  </div>
+<div class="field">
+  <%= f.label :name %><br />
+  <%= f.text_field :name %>
+</div>
+<!-- fields_for form_for内で異なるモデルを編集できるようになる -->
+<%= f.fields_for :questions do |builder| %>
+<!-- フォームの入力項目をグループ化する borderがはいる -->
+  <fieldset>
+    <%= builder.label :content, "Question" %><br />
+    <%= builder.text_area :content %>
+  </fieldset>
+<% end %>
+<div class="actions">
+  <%= f.submit %>
+</div>
 <% end %>
