@@ -19,7 +19,10 @@
 <!-- フォームの入力項目をグループ化する borderがはいる -->
   <fieldset>
     <%= builder.label :content, "Question" %><br />
-    <%= builder.text_area :content %>
+    <%= builder.text_area :content %><br />
+    <!-- -->
+    <%= builder.check_box :_destroy %>
+    <%= builder.label :_destroy, "Remove Question" %>
   </fieldset>
 <% end %>
 <div class="actions">
