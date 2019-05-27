@@ -16,7 +16,7 @@
 </div>
 <!-- fields_for form_for内で異なるモデルを編集できるようになる -->
 <%= f.fields_for :questions do |builder| %>
-  <%= render "questions_fields", f: builder %>
+  <%= render "question_fields", f: builder %>
 <% end %>
 <div class="actions">
   <%= f.submit %>
